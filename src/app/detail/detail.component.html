@@ -1,0 +1,7 @@
+<button routerLink="/">Back</button>
+
+<div *ngIf="this.post">
+  <h3>{{ this.post.title }}</h3>
+  <h4>{{ this.post.id  }}</h4>
+  <textarea disabled>{{ this.post.body }}</textarea>
+</div>

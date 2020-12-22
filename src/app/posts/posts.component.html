@@ -1,0 +1,13 @@
+<h2>posts Component</h2>
+
+
+<label>Id:<input name="id" type="text" [formControl]="postId"></label>
+<button [disabled]="!postId.valid" class="button" (click)="getDetail(+postId.value)">Send</button>
+
+<div *ngIf="postId.invalid && (postId.dirty || postId.touched)"
+     class="alert alert-danger">
+  <div *ngIf="postId.errors && postId.errors.required">
+    Post Id is required.
+  </div>
+</div>
+<router-outlet></router-outlet>
