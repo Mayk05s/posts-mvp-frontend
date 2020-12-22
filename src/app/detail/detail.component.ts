@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Post, PostService } from '../services/post.service';
+import { Post, PostService } from '../common/services/post.service';
 import { Observable } from 'rxjs';
 import { Title } from '@angular/platform-browser';
 import { catchError, map } from 'rxjs/operators';

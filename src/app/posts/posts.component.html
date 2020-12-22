@@ -1,13 +1,15 @@
-<h2>posts Component</h2>
-
-
-<label>Id:<input name="id" type="text" [formControl]="postId"></label>
-<button [disabled]="!postId.valid" class="button" (click)="getDetail(+postId.value)">Send</button>
-
-<div *ngIf="postId.invalid && (postId.dirty || postId.touched)"
-     class="alert alert-danger">
-  <div *ngIf="postId.errors && postId.errors.required">
-    Post Id is required.
-  </div>
-</div>
-<router-outlet></router-outlet>
+<h1> Set post id</h1>
+<section>
+  <mat-form-field class="example-full-width">
+    <mat-label>Post Id</mat-label>
+    <input placeholder="Ex. 1" type="number" matInput [formControl]="postId" [errorStateMatcher]="matcher">
+    <button mat-button matSuffix color="primary" [disabled]="!postId.valid" class="button"
+            (click)="getDetail(+postId.value)">
+      Send
+    </button>
+    <mat-error *ngIf="postId.invalid && (postId.dirty || postId.touched)">
+      Id is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-divider></mat-divider>
+</section>

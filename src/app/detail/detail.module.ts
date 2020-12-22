@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { DetailRoutingModule } from './detail-routing.module';
 import { DetailComponent } from './detail.component';
-import { PostService } from '../services/post.service';
+import { PostService } from '../common/services/post.service';
 
 
 @NgModule({
