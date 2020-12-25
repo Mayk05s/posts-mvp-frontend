@@ -1,8 +1,11 @@
 <mat-card>
-  <mat-card-title align="center">
-    {{ this.post.title }}
-  </mat-card-title>
   <mat-card-content>
+    <div class="spinner" *ngIf="loading">
+      <mat-spinner></mat-spinner>
+    </div>
+    <mat-card-title align="center">
+      {{ this.post.title }}
+    </mat-card-title>
     <textarea class="form-control" disabled aria-label="With textarea">{{ this.post.body }}</textarea>
   </mat-card-content>
   <mat-card-actions>

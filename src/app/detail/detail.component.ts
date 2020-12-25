@@ -14,6 +14,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class DetailComponent implements OnInit {
 
   public post: Post = {} as Post;
+  public loading = true;
 
   constructor(
     private titleService: Title,
@@ -36,6 +37,7 @@ export class DetailComponent implements OnInit {
       .subscribe((post: Post) => {
         this.titleService.setTitle(post.title);
         this.post = post;
+        this.loading = false;
       }, (error: Error) => {
         this.router.navigate(['home']);
         throw error;

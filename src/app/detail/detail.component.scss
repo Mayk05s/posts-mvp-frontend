@@ -1,3 +1,18 @@
 textarea {
   min-height: 150px;
 }
+
+mat-card-content {
+  position: relative;
+
+  .spinner {
+    position: absolute;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    opacity: 0.8;
+  }
+}
