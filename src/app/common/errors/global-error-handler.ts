@@ -11,7 +11,6 @@ export class GlobalErrorHandler implements ErrorHandler {
     const notifier = this.injector.get(NotificationService);
 
     const { message } = error;
-    console.error(message);
     notifier.showError(message);
   }
 }

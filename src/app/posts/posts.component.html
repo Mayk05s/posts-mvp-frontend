@@ -1,15 +1,30 @@
-<h1> Set post id</h1>
-<section>
-  <mat-form-field class="example-full-width">
-    <mat-label>Post Id</mat-label>
-    <input placeholder="Ex. 1" type="number" matInput [formControl]="postId" [errorStateMatcher]="matcher">
-    <button mat-button matSuffix color="primary" [disabled]="!postId.valid" class="button"
-            (click)="getDetail(+postId.value)">
-      Send
-    </button>
-    <mat-error *ngIf="postId.invalid && (postId.dirty || postId.touched)">
-      Id is <strong>required</strong>
-    </mat-error>
-  </mat-form-field>
-  <mat-divider></mat-divider>
-</section>
+<mat-card>
+  <mat-card-title align="center">
+    Please set post Id
+  </mat-card-title>
+  <mat-card-content>
+    <div class="row justify-content-md-center">
+      <div class="col col-md-8">
+        <mat-form-field appearance="outline">
+          <mat-label>Post Id</mat-label>
+          <input placeholder="Enter post Id" type="number" matInput [formControl]="postId"
+                 [errorStateMatcher]="matcher">
+          <mat-error *ngIf="postId.invalid && (postId.dirty || postId.touched)">
+            Id is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col col-lg-2 ">
+        <button type="button" class="btn btn-primary w-100"
+                (click)="getDetail(+postId.value)"
+                [disabled]="!postId.valid">
+          <div class="flex">
+            <mat-icon>send</mat-icon>
+            <span>Send</span>
+          </div>
+        </button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+

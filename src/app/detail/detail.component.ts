@@ -13,7 +13,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class DetailComponent implements OnInit {
 
-  public post: Post | undefined;
+  public post: Post = {} as Post;
 
   constructor(
     private titleService: Title,
@@ -34,16 +34,12 @@ export class DetailComponent implements OnInit {
   getPost(postId: number): void {
     this.service.getItem(postId)
       .subscribe((post: Post) => {
-        this.setTitle(post.title);
+        this.titleService.setTitle(post.title);
         this.post = post;
       }, (error: Error) => {
         this.router.navigate(['home']);
         throw error;
       });
-  }
-
-  public setTitle(newTitle: string): void {
-    this.titleService.setTitle(newTitle);
   }
 
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { Title } from '@angular/platform-browser';
 
 
 /** Error when invalid control is dirty, touched, or submitted. */
@@ -26,11 +27,14 @@ export class PostsComponent implements OnInit {
   ]);
 
   constructor(
+    private titleService: Title,
     private route: ActivatedRoute,
     private router: Router) {
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.titleService.setTitle('Home');
+  }
 
   public getDetail(postId: number): void {
     if (postId && Number.isInteger(postId)) {

@@ -24,7 +24,6 @@ export class PostService {
     const postUrl = `${this.postsUrl}/${id}`;
     return this.http.get<Post>(postUrl)
       .pipe(
-        retry(3),
         catchError(this.handleError),
         map((post: Post) => {
           if (!post.body || !post.title) {
@@ -37,12 +36,8 @@ export class PostService {
 
 
   private handleError(error: HttpErrorResponse): Observable<never> {
-    if (error.error instanceof ErrorEvent) {
-      console.error('An error occurred:', error.error.message);
-    } else {
-      console.error(
-        `Backend returned code ${error.status}, ` +
-        `body was: ${error.error}`);
+    if (error.status === 404) {
+      throw new Error(error.error.message);
     }
     // Return an observable with a user-facing error message.
     return throwError(error);
