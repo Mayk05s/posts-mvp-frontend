@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+$text_color: #212121;
+
+html, body {
+  margin: 0;
+  //background-color: #fafafa;
+  background-color: #dedede;
+  height: 100%;
+}
+
+body {
+  font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+  color: $text_color;
+}
+
+.mat-app-background {
+  background-color: #fafafa;
+}
+
+.error {
+  color: $text_color;
+  background-color: #fff3cd;
+}

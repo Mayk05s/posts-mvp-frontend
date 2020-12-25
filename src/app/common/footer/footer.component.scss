@@ -1,0 +1,22 @@
+footer {
+  text-align: center;
+  padding: 1em;
+  color: #ffffff;
+  background-color: #333333;
+  font-size: 1rem;
+  line-height: 1.6;
+  bottom: 0;
+
+  p {
+    margin: 16px;
+  }
+
+  a.link {
+    color: #99d9fb;
+
+    &:hover, &:focus {
+      text-decoration: none;
+      color: #a1a1a1;
+    }
+  }
+}
