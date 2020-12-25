@@ -1,17 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ErrorStateMatcher } from '@angular/material/core';
 import { Title } from '@angular/platform-browser';
-
-
-/** Error when invalid control is dirty, touched, or submitted. */
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
 
 @Component({
   selector: 'app-posts',
@@ -20,9 +10,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class PostsComponent implements OnInit {
 
-  matcher = new MyErrorStateMatcher();
-  postId: FormControl = new FormControl('', [
+  postId = new FormControl('', [
     Validators.required,
+    Validators.min(1),
     Validators.pattern('[0-9]*')
   ]);
 

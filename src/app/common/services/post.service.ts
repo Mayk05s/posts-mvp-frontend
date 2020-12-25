@@ -39,7 +39,6 @@ export class PostService {
     if (error.status === 404) {
       throw new Error(error.error.message);
     }
-    // Return an observable with a user-facing error message.
     return throwError(error);
   }
 }
